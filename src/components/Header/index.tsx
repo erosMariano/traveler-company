@@ -25,7 +25,7 @@ function Header() {
             <a href="">Sobre nós</a>
           </li>
           <li>
-            <a href="">Login</a>
+            <a href="/colaborador">Login</a>
           </li>
         </ul>
       </nav>
