@@ -18,7 +18,7 @@ function Login() {
     event.preventDefault();
     console.log(userInfo);
     try {
-      if (userInfo.password === "" && userInfo.user === "") {
+      if (userInfo.password !== "" && userInfo.user !== "") {
         navigate("/colaborador");
       } else {
         alert("preencha os campos");
