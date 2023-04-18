@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AreaLogin, Footer, MainContainer } from "./styles";
 import IconAppleStore from "/images/app-store-2.svg";
@@ -10,13 +10,21 @@ import UserIcon from "/images/user.svg";
 
 function Login() {
   const navigate = useNavigate();
+  const [userInfo, setUserInfo] = useState({
+    user: "",
+    password: "",
+  });
   function handleSubmitForm(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log("entrei");
+    console.log(userInfo);
     try {
-      navigate("/colaborador");
+      if (userInfo.password === "" && userInfo.user === "") {
+        navigate("/colaborador");
+      } else {
+        alert("preencha os campos");
+      }
     } catch (error) {
-      console.log(error);
+      alert("Usuário ou senha errados");
     }
   }
   return (
@@ -38,13 +46,33 @@ function Login() {
           <label htmlFor="user">
             <img src={UserIcon} alt="" />
 
-            <input type="text" id="user" placeholder="email@empresa.com.br" />
+            <input
+              type="text"
+              id="user"
+              placeholder="email@empresa.com.br"
+              onChange={(e) =>
+                setUserInfo((prevState) => ({
+                  ...prevState,
+                  user: e.target.value,
+                }))
+              }
+            />
           </label>
 
           <label htmlFor="password">
             <img src={PasswordIcon} alt="" />
 
-            <input type="password" id="password" placeholder="Password" />
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              onChange={(e) =>
+                setUserInfo((prevState) => ({
+                  ...prevState,
+                  password: e.target.value,
+                }))
+              }
+            />
           </label>
 
           <button>Entrar</button>

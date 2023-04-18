@@ -7,7 +7,10 @@ function Header() {
   return (
     <HeaderContainer activeMenu={activeMenu} className="container">
       <h2>
-        <img src={ImageLogo} alt="" /> TRAVELLER COMPANY
+        <a href="/">
+          <img src={ImageLogo} alt="Icone traveller company" /> TRAVELLER
+          COMPANY
+        </a>
       </h2>
       <button className="open" onClick={() => setActiveMenu(true)}>
         Abrir
@@ -25,7 +28,7 @@ function Header() {
             <a href="">Sobre nós</a>
           </li>
           <li>
-            <a href="/colaborador">Login</a>
+            <a href="/login">Login</a>
           </li>
         </ul>
       </nav>
@@ -51,15 +54,22 @@ export const HeaderContainer = styled.header<HeaderActive>`
   z-index: 100;
 
   h2 {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
     line-height: 27px;
     color: #ffffff;
+
+    a {
+      gap: 14px;
+
+      align-items: center;
+      display: flex;
+      color: inherit;
+      text-decoration: none;
+      margin: 0;
+      padding: 0;
+    }
   }
   ul {
     list-style: none;

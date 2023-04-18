@@ -8,14 +8,20 @@ import Logo from "/images/logo.png";
 import Area from "/images/area.svg";
 
 import { Container, Header } from "./styles";
+import { useNavigate } from "react-router-dom";
+
 function Colaborador() {
+  const navigate = useNavigate();
+  function handleCloseColaborador() {
+    navigate("/login");
+  }
   return (
     <Container>
       <Header>
         <h1>Olá, Colaborador!</h1>
 
         <div>
-          <button>
+          <button onClick={handleCloseColaborador}>
             <img src={Engrenagem} alt="" />
           </button>
           <button>
@@ -59,8 +65,8 @@ function Colaborador() {
       </div>
 
       <footer>
-          <img src={Logo} alt="" />
-          <p>TRAVELLER COMPANY</p>
+        <img src={Logo} alt="" />
+        <p>TRAVELLER COMPANY</p>
       </footer>
     </Container>
   );
